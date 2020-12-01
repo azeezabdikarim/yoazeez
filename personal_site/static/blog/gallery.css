@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row-f {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+  margin-top: 10px;
+  width:100%;
+  float:left;
+}
+
+/* Create four equal columns that sits next to each other */
+.column-f {
+  -ms-flex: 33%; /* IE10 */
+  flex: 33%;
+  max-width: 33%;
+  padding: 0 4px;
+}
+
+.column-f img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  opacity:1;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column-f {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column-f {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.gallery-container {
+  position: relative;
+}
+
+.gallery-image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+/*https://www.w3schools.com/howto/howto_css_image_overlay.asp*/
+.gallery-middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  top: 5%;
+  right: 1%;
+  border-radius:10px;
+}
+
+.gallery-container:hover .gallery-image {
+  opacity: 0.7;
+}
+
+.gallery-container:hover .gallery-middle {
+  opacity: 1;
+}
+
+.gallery-text {
+  color:black;
+  background-color: white;
+  opacity:0.9;
+  width: 30px;
+  color: white;
+  font-size: 10px;
+}
+
+.motivate-row{
+  margin-top:1rem;
+  margin-left:3rem;
+  max_width:100%;
+}
+
+.gallery-pic-and-vote{
+  margin-top:3rem;
+  margin-bottom:1rem;
+}
+
+.motivate-col-l {
+  max-width: 50%;
+  float:left;
+  margin-left: 20%;
+}
+
+.motivate-col-r{
+  max-width: 50%;
+  float:right;
+  margin-right:20%;
+}
+
+.motivate-btn {
+  text-align: left;
+}
+
+.motivate-btn a {
+  display:block;
+  margin:auto;
+  color:purple;
+}
+
+.score {
+  opacity:0.9;
+}
+
+.motivate-score {
+  float:right; 
+  margin-right: 3em;
+  vertical-align: middle;
+  max-width: 80%;
+}
+
+.save-from-gallery{
+  max-width: 20%;
+  margin-left:1em;
+}
+
+.custom-shadow {
+  -moz-box-shadow: 0 0 3rem #aaa;
+  -webkit-box-shadow: 0 0 3rem #aaa;
+  box-shadow: 0 1rem 2rem #aaa;
+}
+
