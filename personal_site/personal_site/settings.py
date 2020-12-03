@@ -29,7 +29,7 @@ SECRET_KEY = 'm#nr^!9gadtti$m=0knnk1%plcb)k_upu@0+s3ef7=(11oj(dj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['45.79.31.199', 'localhost']
+ALLOWED_HOSTS = ['45.79.31.199', 'localhost', 'www.yoazeez.com']
 
 # Application definition
 
@@ -133,7 +133,7 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'blog-home'
+LOGIN_REDIRECT_URL = 'gallery'
 LOGIN_URL = 'login'
 
 # MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
