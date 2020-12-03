@@ -11,9 +11,9 @@
 			</div>
 			<div class = "col-md-3 detail-buttons">
 				{% if user.is_authenticated and saved_by_this_user %}
-					<a class = "btn btn-secondary btn-sm mt-1 mb-1" style="float:left" href="{% url 'photo-save' object.id %}">Un-Save</a>
+					<a class = "btn btn-secondary btn-sm mt-1 mb-1" style="float:left" href="{% url 'photo-save' object.id %}">claimed</a>
 				{% else %}
-					<a class = "btn btn-primary btn-sm mt-1 mb-1" style="float:left" href="{% url 'photo-save' object.id %}">Save</a>
+					<a class = "btn btn-primary btn-sm mt-1 mb-1" style="float:left" href="{% url 'photo-save' object.id %}">Add 4ME</a>
 				{% endif %}
 				
 				{% if object.author == user %}

@@ -83,27 +83,27 @@
 				  	  			<a href="{% url 'photo-detail' photo.id %}">
 			    		    	<img class = "gallery-image" src="{{photo.image.url }}" style="width:100%">
 			    		    	<div class="gallery-middle">
-				    		    	<div class="gallery-text">John Doe</div>
+				    		    	<!-- <div class="gallery-text">John Doe</div> -->
 			    		    	</div>
 			    		    	<div class = "motivation-score-sm"></div>
 				  	  		</div>
-				  	  		<div class = "row motivate-row">
+				  	  		<div class = "row motivate-row ml-auto">
 	  	  				  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
-	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:73%;">
 	  	  					  	  			Retract Motivation
 	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
 	  	  					  	  		</a>
 	  	  					  	  	{% else %}
-	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:73%;">
 	  	  					  	  			Retract
 	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
 	  	  					  	  		</a>
 	  	  					  	  	{% endif %}
   	  			  	  			{% if user.is_authenticated and user not in photo.saved_by.all %}
   	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center">
-  	  			  	  					Add 4ME</a>
+  	  			  	  					4ME</a>
   	  			  	  			{% elif user.is_authenticated %}
-  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center;">
+  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-secondary" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center;">
   	  			  	  					claimed</a>
   	  			  	  			{% endif %}
 				  	  		</div>
@@ -118,28 +118,26 @@
 	    		  			<div class = "gallery-container custom-shadow">
 				  	  			<a href="{% url 'photo-detail' photo.id %}">
 			    		    	<img class = "gallery-image" src="{{photo.image.url }}" style="width:100%">
-			    		    	<div class="gallery-middle">
-				    		    	<div class="gallery-text">John Doe</div>
-			    		    	</div>
+			    		  
 			    		    	<div class = "motivation-score-sm"></div>
 				  	  		</div>
-				  	  		<div class = "row motivate-row">
+				  	  		<div class = "row motivate-row ml-auto">
 	  	  				  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
-	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:73%;">
 	  	  					  	  			Motivate
 	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
 	  	  					  	  		</a>
 	  	  					  	  	{% else %}
-	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:73%;">
 	  	  					  	  			Retract Motivation
 	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
 	  	  					  	  		</a>
 	  	  					  	  	{% endif %}
   	  			  	  			{% if user.is_authenticated and user not in photo.saved_by.all %}
   	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center">
-  	  			  	  					Add 4ME</a>
+  	  			  	  					4ME</a>
   	  			  	  			{% elif user.is_authenticated %}
-  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center;">
+  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-secondary" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center;">
   	  			  	  					claimed</a>
   	  			  	  			{% endif %}
 				  	  		</div>
@@ -155,27 +153,27 @@
 				  	  			<a href="{% url 'photo-detail' photo.id %}">
 			    		    	<img class = "gallery-image" src="{{photo.image.url }}" style="width:100%">
 			    		    	<div class="gallery-middle">
-				    		    	<div class="gallery-text">John Doe</div>
-			    		    	</div>
+<!-- 				    		    	<div class="gallery-text">John Doe</div>
+ -->			    		    	</div><!--  -->
 			    		    	<div class = "motivation-score-sm"></div>
 				  	  		</div>
-				  	  		<div class = "row motivate-row">
+				  	  		<div class = "row motivate-row ml-auto">
 	  	  				  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
-	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:73%;">
 	  	  					  	  			Motivate
 	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
 	  	  					  	  		</a>
 	  	  					  	  	{% else %}
-	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:73%;">
 	  	  					  	  			Retract Motivation
 	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
 	  	  					  	  		</a>
 	  	  					  	  	{% endif %}
   	  			  	  			{% if user.is_authenticated and user not in photo.saved_by.all %}
   	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center">
-  	  			  	  					Add 4ME</a>
+  	  			  	  					4ME</a>
   	  			  	  			{% elif user.is_authenticated %}
-  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center;">
+  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-secondary" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center;">
   	  			  	  					claimed</a>
   	  			  	  			{% endif %}
 				  	  		</div>
