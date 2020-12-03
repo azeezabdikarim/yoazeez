@@ -50,16 +50,6 @@
       		    {% if user.is_authenticated %}
       		    	<a class="nav-item nav-link" href="{% url 'new_post' %}">Post Photo</a>
       		    {% endif %}
-      		    <li class="nav-item dropdown">
-		            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		              Gallery Ordering
-		            </a>
-		            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		              <a class="dropdown-item" href="{% url 'gallery-param' order='old-to-new' %}">Old to New</a>
-		              <a class="dropdown-item" href="{% url 'gallery-param' order='new-to-old' %}">New to Old</a>
-		              <a class="dropdown-item" href="{% url 'gallery-param' order='most-motivated' %}">Most Motivated</a>
-		            </div>
-		         </li>
 	      	</div>
 	      	<div class="navbar-nav ml-auto">
       			{% if user.is_authenticated %}
@@ -76,6 +66,17 @@
 	      	</div>
 	      </div> 
     </nav>
+    <ul class="nav justify-content-center" style="font-family: 'East Sea Dokdo', cursive; font-size: 40px">
+      <li class="nav-item">
+          <a class="dropdown-item" href="{% url 'gallery-param' order='old-to-new' %}">Old to New</a>
+      </li>
+      <li class="nav-item">
+          <a class="dropdown-item" href="{% url 'gallery-param' order='new-to-old' %}">New to Old</a>
+      </li>
+      <li class="nav-item">
+          <a class="dropdown-item" href="{% url 'gallery-param' order='most-motivated' %}">Most Motivated</a>
+      </li>
+    </ul>
     <main role="main" style="margin: 10px; padding:5px;">
     		<div class="row-f" style="font-family: 'Fredoka One', cursive;"> 
     		  <div class = "column-f">
