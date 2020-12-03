@@ -44,7 +44,7 @@ class Post2(models.Model):
 
 class Photo(models.Model):
 	image = models.ImageField(upload_to='gallery_photos')
-	description = models.TextField()
+	description = models.TextField(blank = True)
 	author = models.ForeignKey(User, on_delete = models.CASCADE)
 	created = models.DateTimeField(auto_now_add=True)
 	modified = models.DateTimeField(auto_now=True)
@@ -58,6 +58,7 @@ class Photo(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('photo-detail', kwargs={'pk':self.pk})
+	
 
 class Comment(models.Model):
 	post = models.ForeignKey(Photo, on_delete=models.CASCADE)

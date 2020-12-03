@@ -1,3 +1,6 @@
+import os
+from mimetypes import MimeTypes
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Count
@@ -189,11 +192,16 @@ class PhotoSaveView(LoginRequiredMixin, RedirectView):
 @login_required
 def download_image(request, pk):
     img = Photo.objects.get(id=pk)
-    wrapper      = FileWrapper(open(img.image.url,'r')) # img.file returns full path to the image
-    content_type = mimetypes.guess_type(filename)[0]  # Use mimetypes to get file type
+    inputfile = os.getcwd()+img.image.url
+    print(inputfile)
+    print('-----------------')
+    mime = MimeTypes()
+    wrapper      = FileWrapper(open(inputfile,'rb')) # img.file returns full path to the image
+    content_type = mime.guess_type(inputfile)[0]  # Use mimetypes to get file type
+    print(content_type)
     response     = HttpResponse(wrapper,content_type=content_type)  
-    response['Content-Length']      = os.path.getsize(img.image.file)    
-    response['Content-Disposition'] = "attachment; filename=%s" %  img.name
+    response['Content-Length']      = os.path.getsize(inputfile)    
+    response['Content-Disposition'] = "attachment; filename=%s" %  img.image.name
     return response
 
 class PostListView(ListView):

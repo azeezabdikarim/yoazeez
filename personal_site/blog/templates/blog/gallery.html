@@ -30,19 +30,23 @@
 	    </div>
 	  </div>
 	</nav> -->
-	<nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #b64cd9">
+	<nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #696762">
       <a class="navbar-brand" href="/">
         Azeez.me
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-	      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	      	<div class="navbar-nav mr-auto">
-      			<a class="nav-item nav-link active" href="{% url 'blog-home' %}">Home<span class="sr-only">(current)</span></a>
-      		    <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+	      		{% if user.username ==  'azeez' %}
+	      			<a class="nav-item nav-link active" href="{% url 'blog-home' %}">Home<span class="sr-only">(current)</span></a>
+	      		    <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+      		    {% endif %}
       		    <a class="nav-item nav-link" href="{% url 'gallery' %}">Gallery</a>
-      		    <a class="nav-item nav-link" href="{% url 'new_post' %}">Create Post</a>
+      		    {% if user.is_authenticated %}
+      		    	<a class="nav-item nav-link" href="{% url 'new_post' %}">Post Photo</a>
+      		    {% endif %}
       		    <li class="nav-item dropdown">
 		            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		              Gallery Ordering
@@ -52,20 +56,22 @@
 		              <a class="dropdown-item" href="{% url 'gallery-param' order='new-to-old' %}">New to Old</a>
 		              <a class="dropdown-item" href="{% url 'gallery-param' order='most-motivated' %}">Most Motivated</a>
 		            </div>
-		          </li>
+		         </li>
 	      	</div>
 	      	<div class="navbar-nav ml-auto">
       			{% if user.is_authenticated %}
-	      			<a class="nav-item nav-link" href="{% url 'post-create' %}">New Blog Post</a>
-	      			<a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-	      			<a class="nav-item nav-link" href="{% url 'personal-saves' %}">My Saves</a>
+      				{% if user.username ==  'azeez' %}
+		      			<a class="nav-item nav-link" href="{% url 'post-create' %}">New Blog Post</a>
+		      			<a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+		      		{% endif %}
+	      			<a class="nav-item nav-link" href="{% url 'personal-saves' %}">4ME</a>
 	      			<a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
 	      		{% else %}
 	      			<a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
 	      			<a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
 	      		{% endif %}
 	      	</div>
-	      </div>
+	      </div> 
     </nav>
     <main role="main" style="margin: 10px; padding:5px;">
     		<div class="row-f"> 
@@ -95,10 +101,10 @@
 	  	  					  	  	{% endif %}
   	  			  	  			{% if user.is_authenticated and user not in photo.saved_by.all %}
   	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center">
-  	  			  	  					Save</a>
+  	  			  	  					Add 4ME</a>
   	  			  	  			{% elif user.is_authenticated %}
   	  			  	  				<a class = "save-from-gallery btn btn-sm btn-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center;">
-  	  			  	  					Saved</a>
+  	  			  	  					claimed</a>
   	  			  	  			{% endif %}
 				  	  		</div>
 	    		  		</div>
@@ -131,10 +137,10 @@
 	  	  					  	  	{% endif %}
   	  			  	  			{% if user.is_authenticated and user not in photo.saved_by.all %}
   	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center">
-  	  			  	  					Save</a>
+  	  			  	  					Add 4ME</a>
   	  			  	  			{% elif user.is_authenticated %}
   	  			  	  				<a class = "save-from-gallery btn btn-sm btn-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center;">
-  	  			  	  					Saved</a>
+  	  			  	  					claimed</a>
   	  			  	  			{% endif %}
 				  	  		</div>
 	    		  		</div>
@@ -167,10 +173,10 @@
 	  	  					  	  	{% endif %}
   	  			  	  			{% if user.is_authenticated and user not in photo.saved_by.all %}
   	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center">
-  	  			  	  					Save</a>
+  	  			  	  					Add 4ME</a>
   	  			  	  			{% elif user.is_authenticated %}
   	  			  	  				<a class = "save-from-gallery btn btn-sm btn-success" href="{% url 'photo-save' pk=photo.id %}" style = "text-align:center;">
-  	  			  	  					Saved</a>
+  	  			  	  					claimed</a>
   	  			  	  			{% endif %}
 				  	  		</div>
 	    		  		</div>
