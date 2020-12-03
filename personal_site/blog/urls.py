@@ -10,6 +10,7 @@ from blog.views import PhotoListView, PhotoCreateView, PhotoDetailView, PhotoDel
 urlpatterns = [
     path('', PostListView.as_view(), name='blog-home'),
     path('about/', views.about, name='blog-about'),
+    path('download/<int:pk>/', views.download_image, name=('photo-download')),
     path('gallery/', PhotoListView.as_view(), name='gallery'),
     path('personal/', PersonalListView.as_view(), name='personal-saves'),
     path('gallery/<str:order>/', PhotoListView.as_view(), name='gallery-param'),
@@ -23,4 +24,4 @@ urlpatterns = [
     path('photos/<int:pk>/delete/', PhotoDeleteView.as_view(), name = 'photo-delete'),
     path('photos/<int:pk>/save/', PhotoSaveView.as_view(), name = 'photo-save'),
     path('photos/<int:pk>/motivate/', PhotoVoteToggle.as_view(), name = 'photo-vote')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

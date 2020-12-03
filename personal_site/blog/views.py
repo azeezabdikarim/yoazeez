@@ -5,7 +5,9 @@ from django.db.models.functions import Length
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from wsgiref.util import FileWrapper
 from django import forms
 from django.views.generic import (
 	ListView,
@@ -184,6 +186,15 @@ class PhotoSaveView(LoginRequiredMixin, RedirectView):
 
 		return url
 
+@login_required
+def download_image(request, pk):
+    img = Photo.objects.get(id=pk)
+    wrapper      = FileWrapper(open(img.image.url,'r')) # img.file returns full path to the image
+    content_type = mimetypes.guess_type(filename)[0]  # Use mimetypes to get file type
+    response     = HttpResponse(wrapper,content_type=content_type)  
+    response['Content-Length']      = os.path.getsize(img.image.file)    
+    response['Content-Disposition'] = "attachment; filename=%s" %  img.name
+    return response
 
 class PostListView(ListView):
 	model = Post2

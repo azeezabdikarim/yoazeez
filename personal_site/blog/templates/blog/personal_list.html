@@ -72,36 +72,30 @@
     		  <div class = "column-f">
     		  	{% for photo in photos %}
     		  		{% if forloop.counter < lower_third %}
-    		  			<p>
-    		  				{{ photos.count}}
-    		  			</p>
-	    		  		<div class = "gallery-pic-and-vote">
+    		  			<div class = "gallery-pic-and-vote">
 	    		  			<div class = "gallery-container custom-shadow">
 				  	  			<a href="{% url 'photo-detail' photo.id %}">
-			    		    	<img class = "gallery-image" src="{{photo.image.url}}" style="width:100%">
+			    		    	<img class = "gallery-image" src="{{photo.image.url }}" style="width:100%">
 			    		    	<div class="gallery-middle">
 				    		    	<div class="gallery-text">John Doe</div>
 			    		    	</div>
 			    		    	<div class = "motivation-score-sm"></div>
 				  	  		</div>
-				  	  		<div class = "motivate-row">
-	  	  			  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
-	  	  				  	  		<div class = "column motivate-col-l" >
-		  	  				  	  		<a class = "motivate-btn" href="{% url 'photo-vote' pk=photo.id %}">Motivate</a>
-	  	  				  	  		</div>
-	  	  				  	  		<div class= "column motivate-col-r score">
-	  	  				  	  			{{photo.total_votes.count}}
-	  	  				  	  		</div>
-	  	  				  	  	{% else %}
-	  	  				  	  		<div class = "column motivate-col-l">
-		  	  				  	  		<a class = "motivate-btn" href="{% url 'photo-vote' pk=photo.id %}">Deeee-Motivate</a>
-	  	  				  	  		</div>
-	  	  				  	  		<div class= "column motivate-col-r score">
-	  	  				  	  			{{photo.total_votes.count}}
-	  	  				  	  		</div>
-	  	  				  	  	{% endif %}
+				  	  		<div class = "row motivate-row">
+	  	  				  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  			Retract Motivation
+	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
+	  	  					  	  		</a>
+	  	  					  	  	{% else %}
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  			Retract
+	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
+	  	  					  	  		</a>
+	  	  					  	  	{% endif %}
+  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-download' pk=photo.id %}" style = "text-align:center">
+  	  			  	  					Download</a>
 				  	  		</div>
-	    		  		</div>
     		    	{% endif %}
     		    {% endfor %}
     		  </div>
@@ -117,24 +111,21 @@
 			    		    	</div>
 			    		    	<div class = "motivation-score-sm"></div>
 				  	  		</div>
-				  	  		<div class = "motivate-row">
-	  	  			  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
-	  	  				  	  		<div class = "column motivate-col-l" >
-		  	  				  	  		<a class = "motivate-btn" href="{% url 'photo-vote' pk=photo.id %}">Motivate</a>
-	  	  				  	  		</div>
-	  	  				  	  		<div class= "column motivate-col-r score">
-	  	  				  	  			{{photo.total_votes.count}}
-	  	  				  	  		</div>
-	  	  				  	  	{% else %}
-	  	  				  	  		<div class = "column motivate-col-l">
-		  	  				  	  		<a class = "motivate-btn" href="{% url 'photo-vote' pk=photo.id %}">Deeee-Motivate</a>
-	  	  				  	  		</div>
-	  	  				  	  		<div class= "column motivate-col-r score">
-	  	  				  	  			{{photo.total_votes.count}}
-	  	  				  	  		</div>
-	  	  				  	  	{% endif %}
+				  	  		<div class = "row motivate-row">
+	  	  				  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  			Retract Motivation
+	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
+	  	  					  	  		</a>
+	  	  					  	  	{% else %}
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  			Retract
+	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
+	  	  					  	  		</a>
+	  	  					  	  	{% endif %}
+  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-download' pk=photo.id %}" style = "text-align:center">
+  	  			  	  					Download</a>
 				  	  		</div>
-	    		  		</div>
     		    	{% endif %}
     	  	    {% endfor %}
     		  </div>
@@ -150,24 +141,21 @@
 			    		    	</div>
 			    		    	<div class = "motivation-score-sm"></div>
 				  	  		</div>
-				  	  		<div class = "motivate-row">
-	  	  			  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
-	  	  				  	  		<div class = "column motivate-col-l" >
-		  	  				  	  		<a class = "motivate-btn" href="{% url 'photo-vote' pk=photo.id %}">Motivate</a>
-	  	  				  	  		</div>
-	  	  				  	  		<div class= "column motivate-col-r score">
-	  	  				  	  			{{photo.total_votes.count}}
-	  	  				  	  		</div>
-	  	  				  	  	{% else %}
-	  	  				  	  		<div class = "column motivate-col-l">
-		  	  				  	  		<a class = "motivate-btn" href="{% url 'photo-vote' pk=photo.id %}">Deeee-Motivate</a>
-	  	  				  	  		</div>
-	  	  				  	  		<div class= "column motivate-col-r score">
-	  	  				  	  			{{photo.total_votes.count}}
-	  	  				  	  		</div>
-	  	  				  	  	{% endif %}
+				  	  		<div class = "row motivate-row">
+	  	  				  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  			Retract Motivation
+	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
+	  	  					  	  		</a>
+	  	  					  	  	{% else %}
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  			Retract
+	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
+	  	  					  	  		</a>
+	  	  					  	  	{% endif %}
+  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-download' pk=photo.id %}" style = "text-align:center">
+  	  			  	  					Download</a>
 				  	  		</div>
-	    		  		</div>
     		    	{% endif %}
 		  	    {% endfor %}
 		  	  </div>
