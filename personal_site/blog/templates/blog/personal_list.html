@@ -63,8 +63,8 @@
 	      	</div>
 	      </div>
     </nav>
+    <h3 style="text-align: center">This page holds the photos you've marked in the Gallery Tab. On this page, photos have a download button that appears with them</h3>
     <main role="main" style="margin: 10px;padding: 5px;">
-    	<h3 style="text-align: center">This page holds the photos you've 'Saved' from the Gallery Tab. On this page, photos have a download button that appears with them</h3>
     		<div class="row-f"> 
     		  <div class = "column-f">
     		  	{% for photo in photos %}
@@ -93,6 +93,7 @@
   	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-download' pk=photo.id %}" style = "text-align:center">
   	  			  	  					Download</a>
 				  	  		</div>
+				  	  	</div>
     		    	{% endif %}
     		    {% endfor %}
     		  </div>
@@ -110,19 +111,20 @@
 				  	  		</div>
 				  	  		<div class = "row motivate-row">
 	  	  				  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
-	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:74%;">
 	  	  					  	  			Retract Motivation
 	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
 	  	  					  	  		</a>
 	  	  					  	  	{% else %}
-	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:74%;">
 	  	  					  	  			Retract
 	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
 	  	  					  	  		</a>
 	  	  					  	  	{% endif %}
-  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-download' pk=photo.id %}" style = "text-align:center">
+  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-download' pk=photo.id %}" style = "text-align:center; margin-right:1rem">
   	  			  	  					Download</a>
 				  	  		</div>
+				  	  	</div>
     		    	{% endif %}
     	  	    {% endfor %}
     		  </div>
@@ -140,19 +142,20 @@
 				  	  		</div>
 				  	  		<div class = "row motivate-row">
 	  	  				  	  		{% if user.is_authenticated and user not in photo.total_votes.all %}
-	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-outline-secondary btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:74%;">
 	  	  					  	  			Retract Motivation
 	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
 	  	  					  	  		</a>
 	  	  					  	  	{% else %}
-	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:78%;">
+	  	  					  	  		<a class = "motivate-btn btn btn-sm btn-light btn-block" href="{% url 'photo-vote' pk=photo.id %}" style = "text-align:left; max-width:74%;">
 	  	  					  	  			Retract
 	  	  					  	  			<span class="badge badge-secondary motivate-score" style = "font-size: 15px">{{photo.total_votes.count}}</span>
 	  	  					  	  		</a>
 	  	  					  	  	{% endif %}
-  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-download' pk=photo.id %}" style = "text-align:center">
+  	  			  	  				<a class = "save-from-gallery btn btn-sm btn-outline-success" href="{% url 'photo-download' pk=photo.id %}" style = "text-align:center; margin-right:1rem">
   	  			  	  					Download</a>
 				  	  		</div>
+				  	  	</div>
     		    	{% endif %}
 		  	    {% endfor %}
 		  	  </div>

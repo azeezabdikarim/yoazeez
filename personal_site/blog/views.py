@@ -176,7 +176,8 @@ class PhotoSaveView(LoginRequiredMixin, RedirectView):
 	def get_redirect_url(self, *args, **kwargs):
 		obj = get_object_or_404(Photo, pk = self.kwargs['pk'])
 		pk = self.kwargs['pk']
-		url = f'/photos/{pk}'
+		# url = f'/photos/{pk}'
+		url = '/gallery/'
 		print(url)
 		user = self.request.user
 		if user.is_authenticated:
